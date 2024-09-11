@@ -55,22 +55,22 @@ async function startXlsxReader() {
         let html = '<thead><tr>';
             keysArray.forEach(cell => html += `<th>${cell}</th>`);
             html += '</tr></thead><tbody>';
-                res.payload.forEach((row, index) => {
-                    if(row.severity == 1){
-                        keysArray.forEach(cell =>{ 
-                            html += `<td bgcolor="white">${row[cell]}</td>`
-                        });
+            res.payload.forEach((row, index) => {
+            if(row.severity == 1){
+                keysArray.forEach(cell =>{ 
+                    html += `<td bgcolor="red">${row[cell]}</td>`
+                });
                 html += '</tr>';
             }
             else if(row.severity == 2){
                 keysArray.forEach(cell =>{ 
-                    html += `<td bgcolor="orange">${row[cell]}</td>`
+                    html += `<td bgcolor="yellow">${row[cell]}</td>`
                 });
                 html += '</tr>';
             }
             else if(row.severity == 3){
                 keysArray.forEach(cell =>{ 
-                    html += `<td bgcolor="red">${row[cell]}</td>`
+                    html += `<td bgcolor="white">${row[cell]}</td>`
                 });
                 html += '</tr>';
             }

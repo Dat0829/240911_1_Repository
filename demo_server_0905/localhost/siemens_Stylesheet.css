@@ -84,43 +84,6 @@ input[type="number"] {
 	text-align: center;
 }
 
-
-h1{
-	display: flex;
-	justify-content: center;
-}
-.container{
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-	height: 100px;
-
-}
-#xlsx-table {
-	display: block;
-	max-height: 550px;
-	max-width: 700px;
-	border-collapse: collapse;
-	overflow-x: auto;
-	overflow-y: auto;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.048);
-	/* border: 1px solid #000000; */
-	border-radius: 10px;
-}
-#xlsx-table thead,tbody{
-	width: 80%;
-	overflow-x: auto;
-	overflow-y: auto;
-}
-#xlsx-table th, #xlsx-table td {
-	border: 1px solid #ddd;
-	padding: 8px;
-	text-align: left;
-}
-#xlsx-table th {
-	background-color: #f2f2f2;
-}
-
 /* Keyboard css */
 input {
 	font-size: 20px;
@@ -147,19 +110,54 @@ input {
 .ui-keyboard-button:hover {
 	background-color: #45a049;
 }
-
 .title{
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
-/*  */
-#annotation-table {
-	position: absolute;
-	right: 20px;
+h1{
+	display: flex;
+	justify-content: center;
+}
+/* table css */
+.container{
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	height: 100px;
+
+}
+#content .table{
+	display: flex;
+}
+#xlsx-table {
+	display: block;
+	max-height: 550px;
+	max-width: 700px;
 	border-collapse: collapse;
-	border: 1px solid #000000;
-	border-radius: 20px;
+	overflow-x: auto;
+	overflow-y: auto;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.048);
+	/* border: 1px solid #000000; */
+	border-radius: 10px;
+}
+#xlsx-table thead,tbody{
+	width: 80%;
+	overflow-x: auto;
+	overflow-y: auto;
+}
+#xlsx-table th, #xlsx-table td {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: left;
+}
+#xlsx-table th {
+	background-color: #f2f2f2;
+}
+/* table css */
+#annotation-table {
+	display: block;
+	border-collapse: collapse;
 }
 #annotation-table th, td {
 	border: 1px solid #ddd;

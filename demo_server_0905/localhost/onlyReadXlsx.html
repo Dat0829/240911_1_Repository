@@ -18,7 +18,9 @@
         <h1>ERROR</h1>
     </div>
     <div id="content">
-        <table id="xlsx-table">
+        <div class="table">
+            <table id="xlsx-table">
+            </table>
             <table id="annotation-table">
                 <thead>
                     <tr>
@@ -29,11 +31,11 @@
                 <tbody>
                     <tr>
                         <td bgcolor="red"></td>
-                        <td>Serious</td>
+                        <td>Serious Alarm</td>
                     </tr>
                     <tr>
                         <td bgcolor="yellow"></td>
-                        <td>Heaving</td>
+                        <td>Fault</td>
                     </tr>
                     <tr>
                         <td bgcolor="white"></td>
@@ -41,7 +43,7 @@
                     </tr>
                 </tbody>
             </table>
-        </table>
+        </div>
         <div class="container">
             <div>
                 <button class="btn btn-outline-dark" id="btn-user-login" onclick="userLogout()">Back to screen</button>
