@@ -49,40 +49,39 @@ async function userLogout() {
 
 async function startXlsxReader() {
     try {
-        const message = { "message": "auto_read_xls" };
-        const res = await request( '/get', message, null);
+        const res = await request( '/get', { "message": "auto_read_xls" }, null);
         const keysArray = Object.keys(res.payload[0]);
         let html = '<thead><tr>';
-            keysArray.forEach(cell => html += `<th>${cell}</th>`);
-            html += '</tr></thead><tbody>';
-            res.payload.forEach((row, index) => {
-            if(row.severity == 1){
-                keysArray.forEach(cell =>{ 
-                    html += `<td bgcolor="red">${row[cell]}</td>`
-                });
-                html += '</tr>';
-            }
-            else if(row.severity == 2){
-                keysArray.forEach(cell =>{ 
-                    html += `<td bgcolor="yellow">${row[cell]}</td>`
-                });
-                html += '</tr>';
-            }
-            else if(row.severity == 3){
-                keysArray.forEach(cell =>{ 
-                    html += `<td bgcolor="white">${row[cell]}</td>`
-                });
-                html += '</tr>';
-            }
-            else{
-                keysArray.forEach(cell =>{ 
-                    html += `<td bgcolor="white">${row[cell]}</td>`
-                });
-                html += '</tr>';
-            }
+        keysArray.forEach(cell => html += `<th>${cell}</th>`);
+        html += '</tr></thead><tbody>';
+        res.payload.forEach((row, index) => {
+        if(row.severity == 1){
+            keysArray.forEach(cell =>{ 
+                html += `<td bgcolor="red">${row[cell]}</td>`
+            });
+            html += '</tr>';
+        }
+        else if(row.severity == 2){
+            keysArray.forEach(cell =>{ 
+                html += `<td bgcolor="yellow">${row[cell]}</td>`
+            });
+            html += '</tr>';
+        }
+        else if(row.severity == 3){
+            keysArray.forEach(cell =>{ 
+                html += `<td bgcolor="white">${row[cell]}</td>`
+            });
+            html += '</tr>';
+        }
+        else{
+            keysArray.forEach(cell =>{ 
+                html += `<td bgcolor="white">${row[cell]}</td>`
+            });
+            html += '</tr>';
+        }
         });
         html += '</tbody>';
-        document.getElementById('xlsx-table').innerHTML = html;
+        $('#xlsx-table').html(html);
         setTimeout(start, 5000);
     } catch (error) {
         console.error(error);
