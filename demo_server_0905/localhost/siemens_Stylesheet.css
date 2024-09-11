@@ -1,0 +1,156 @@
+*{
+	user-select: none;
+}
+body {
+	font-family : Arial, Helvetica, sans-serif;
+	margin : 0px;
+ 	text-align : left;
+	text-decoration : none;
+	color : #000000;
+	overflow : auto;
+}
+
+#header {
+	position: absolute;
+	width: 950px;
+	height: 110px;
+	left: 60px;
+	top: 20px;
+	background-color: rgb(255,255,255);
+	z-index: 2;
+}
+
+#header h2{
+	padding-top: 10px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	font-size: 26px;
+}
+
+
+.plc-login{
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-color: cornflowerblue;
+    position: relative;
+    top: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.plc-login form{
+    padding: 20px;
+}
+
+#content{
+	position: absolute;
+	top: 100px;
+	left: 0px;
+	bottom: 0;
+	right: 0;
+	padding: 0px 20px 0 20px;
+	margin: 0;
+	z-index: 5;
+	background-color: #eaeaea;
+	vertical-align: top;
+	border: 0;
+	border-collapse: collapse;
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+
+/* form styles */
+input[type="submit"], input[type="button"] {
+	height: 45px;
+	width: 150px;
+	font-size: 16px;
+	text-align: center;
+}
+input[type="text"]#flowrate {
+	height: 45px;
+	width: 50px;
+	font-size: 16px;
+	text-align: center;
+}
+input[type="number"] {
+	height: 45px;
+	width: 50px;
+	font-size: 16px;
+	text-align: center;
+}
+
+
+h1{
+	display: flex;
+	justify-content: center;
+}
+.container{
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	height: 100px;
+
+}
+#xlsx-table {
+	display: block;
+	max-height: 550px;
+	max-width: 700px;
+	border-collapse: collapse;
+	overflow-x: auto;
+	overflow-y: auto;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.048);
+	/* border: 1px solid #000000; */
+	border-radius: 10px;
+}
+#xlsx-table thead,tbody{
+	width: 80%;
+	overflow-x: auto;
+	overflow-y: auto;
+}
+#xlsx-table th, #xlsx-table td {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: left;
+}
+#xlsx-table th {
+	background-color: #f2f2f2;
+}
+
+/* Keyboard css */
+input {
+	font-size: 20px;
+	padding: 10px;
+	margin: 20px;
+	width: 300px;
+}
+.ui-keyboard {
+	font-size: 16px;
+	background-color: #f1f1f1;
+	border-radius: 10px;
+	padding: 10px;
+}
+.ui-keyboard-button {
+	padding: 15px;
+	margin: 5px;
+	border-radius: 5px;
+	font-size: 18px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+.ui-keyboard-button:hover {
+	background-color: #45a049;
+}
+
+.title{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+

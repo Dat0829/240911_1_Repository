@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Await Screen</title>
+    <style>
+        body{
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.88rem;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background-color: rgb(0, 91, 158);
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            appearance: none;
+            border: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        h1{
+            font-size: 70px;
+            color: white;
+        }
+        
+        .dot-spinner {
+        --uib-size: 200px;
+        --uib-speed: 2.9s;
+        --uib-color: white;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: var(--uib-size);
+        width: var(--uib-size);
+        }
+
+        .dot-spinner__dot {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100%;
+        width: 100%;
+        }
+
+        .dot-spinner__dot::before {
+        content: '';
+        height: 20%;
+        width: 20%;
+        border-radius: 50%;
+        background-color: var(--uib-color);
+        transform: scale(0);
+        opacity: 0.5;
+        animation: pulse calc(var(--uib-speed) * 1.111) ease-in-out infinite;
+        }
+
+        .dot-spinner__dot:nth-child(2) {
+        transform: rotate(45deg);
+        }
+
+        .dot-spinner__dot:nth-child(2)::before {
+        animation-delay: calc(var(--uib-speed) * -0.875);
+        }
+
+        .dot-spinner__dot:nth-child(3) {
+        transform: rotate(90deg);
+        }
+
+        .dot-spinner__dot:nth-child(3)::before {
+        animation-delay: calc(var(--uib-speed) * -0.75);
+        }
+
+        .dot-spinner__dot:nth-child(4) {
+        transform: rotate(135deg);
+        }
+
+        .dot-spinner__dot:nth-child(4)::before {
+        animation-delay: calc(var(--uib-speed) * -0.625);
+        }
+
+        .dot-spinner__dot:nth-child(5) {
+        transform: rotate(180deg);
+        }
+
+        .dot-spinner__dot:nth-child(5)::before {
+        animation-delay: calc(var(--uib-speed) * -0.5);
+        }
+
+        .dot-spinner__dot:nth-child(6) {
+        transform: rotate(225deg);
+        }
+
+        .dot-spinner__dot:nth-child(6)::before {
+        animation-delay: calc(var(--uib-speed) * -0.375);
+        }
+
+        .dot-spinner__dot:nth-child(7) {
+        transform: rotate(270deg);
+        }
+
+        .dot-spinner__dot:nth-child(7)::before {
+        animation-delay: calc(var(--uib-speed) * -0.25);
+        }
+
+        .dot-spinner__dot:nth-child(8) {
+        transform: rotate(315deg);
+        }
+
+        .dot-spinner__dot:nth-child(8)::before {
+        animation-delay: calc(var(--uib-speed) * -0.125);
+        }
+
+        @keyframes pulse {
+        0%,
+        100% {
+            transform: scale(0);
+            opacity: 0.5;
+        }
+
+        50% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="dot-spinner">
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+    </div>
+    <div class="ctn">
+        <h1>Please wait !</h1>
+    </div>
+</body>
+</html>

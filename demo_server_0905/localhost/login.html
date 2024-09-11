@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <title>Login</title>
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <link type="text/css" rel="stylesheet" href="/siemens_Stylesheet.css"/>
+    <link type="text/css" rel="stylesheet" href="/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/keyboard-basic.min.css">
+    <script src="/jquery-2.0.2.min.js"></script>
+    <script src="/runtime.js"></script>
+    <script src="/getdata.js"></script>
+    <script src="/sendRequest.js"></script>
+    <script src="/jquery.keyboard.min.js"></script>
+</head>
+<body>
+    <div class="title">
+        <h1>Login</h1>
+    </div>
+    <div id="content">
+        <div id="plcLoginContainer" class="plcLoginContainer">
+            <div class="plc-login">
+                <form onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="plcIpAdress"><b>User</b></label>
+                        <input type="text" class="form-control" id="user" placeholder="Enter the User">
+                    </div>
+                    <div class="form-group">
+                        <label for="plcIpAdress"><b>Password</b></label>
+                        <input type="text" class="form-control" id="password" placeholder="Enter the Password">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-outline-primary" id="btn-login" onclick="userAuthentication()">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <button class="btn btn-outline-dark" id="btn-user-login" onclick="userLogout()">Back to screen</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
