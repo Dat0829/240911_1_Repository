@@ -1,33 +1,25 @@
-const path = require('path'); // require path module
-const xls = require('./myModule/xlsUpdate'); // require path module
-const plc = require('./myModule/plcRuntime'); // require path module
-const json = require('./myModule/jsonUpdate'); // require path module
-// Serve the HTML file using express
-const express = require('express'); // require express
+const path = require('path');
+const xls = require('./myModule/xlsUpdate');
+const plc = require('./myModule/plcRuntime');
+const json = require('./myModule/jsonUpdate');
+const express = require('express');
 const app = express();
 let plcMode;
-// Cấu hình CORS....
 const cors = require('cors');
 app.use(cors({
   origin: ['http://127.0.0.1:3000', 'https://100.100.4.1'],
   allowedHeaders: ['authorization', 'Content-Type', 'x-auth-token'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow specific methods
-  credentials: true  // If you are dealing with credentials like cookies
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
 }));
-
-//-----------------------------------------------------------------------
 app.use(express.static(path.join(__dirname, 'localhost')));
 app.get('/', (req, res) => {
   res.status(200).sendFile(path.join(__dirname, 'localhost/login.html'));
 });
-//------------------------------------------------------------------------
 app.listen(3000, () => {
-  /*----------------------------Start-localhost-------------------------------*/
   console.log('Server running at http://127.0.0.1:3000/');
-  /*--------------------------------CMT---------------------------------------*/
   autoLoginPlc();
 });
-//------------------------------------------------------------------------
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.post('/get', async (req, res) => {
@@ -60,17 +52,13 @@ app.post('/get', async (req, res) => {
 });
 app.post('/set', async (req, res) => {
   try {
-    // Kiểm tra xem dữ liệu có được gửi từ user không
     if (!req.body || !req.body.message ) {
       res.status(400).json({ error: 'Invalid request. Message property is missing.' });
       return;
     }
-    // Lấy thông điệp từ client
     const clientMessage = req.body.message;
     const clientPayload = req.body.payload;
-    console.log('Received message:', clientMessage , "and replace message from user:", clientPayload);
     const res = await json.findAndReplaceMessage(`./log/data.json`, clientMessage, clientPayload);
-    console.log(res); // check debug
   } catch (error) {
     console.error(error);
   }

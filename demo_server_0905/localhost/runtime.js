@@ -47,7 +47,7 @@ async function userLogout() {
     }
 }
 
-async function start() {
+async function startXlsxReader() {
     try {
         const message = { "message": "auto_read_xls" };
         const res = await request( '/get', message, null);
