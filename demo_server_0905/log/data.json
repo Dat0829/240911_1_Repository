@@ -3,7 +3,7 @@
     "message": "auto_run_url",
     "payload": {
       "execution": true,
-      "user": "RB",
+      "user": "RB1",
       "password": "Rb@123456",
       "EVSE": 1
     }
@@ -12,7 +12,7 @@
     "message": "user_authentication",
     "payload": {
       "execution": true,
-      "user": "RB",
+      "user": "RB1",
       "password": "Rb@123456"
     }
   },
@@ -39,7 +39,7 @@
     "payload": {
       "execution": true,
       "ip": "100.100.4.1",
-      "user": "RB",
+      "user": "RB2",
       "password": "Rb@123456"
     }
   },
