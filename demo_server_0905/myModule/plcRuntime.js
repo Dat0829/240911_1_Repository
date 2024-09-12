@@ -401,7 +401,7 @@ async function urlStart(mode, index){
             url = `http://127.0.0.1:3000/await.html`;
         }
         // Start a process on Windows
-        exec(`start "" ${chromePath} --kiosk ${url}`, (err, stdout, stderr) => {
+        exec(`start "" ${chromePath} --start-fullscreen --kiosk ${url} -incognito --disable-pinch --overscroll-history-navigation=0`, (err, stdout, stderr) => {
           if (err) {
             console.error(`Error launching Chrome: ${err.message}`);
             return;
