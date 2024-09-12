@@ -82,7 +82,7 @@ async function startXlsxReader() {
         });
         html += '</tbody>';
         $('#xlsx-table').html(html);
-        setTimeout(start, 5000);
+        setTimeout(startXlsxReader, 5000);
     } catch (error) {
         console.error(error);
     }
