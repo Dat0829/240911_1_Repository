@@ -1,0 +1,1245 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{    
+    --color-screen-active: #01f7ff;
+
+    --box-shadow: 0rem 0rem 3rem var(--color-light);
+    --color-status: rgb(9, 255, 0);
+    --color-dark: #a3bdcc;
+    --color-green-charging:rgba(0, 255, 191, 0.6);
+    --color-purple-waiting: purple;
+    --color-available:rgb(0, 255, 64);
+
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+
+    --color-screen-background: #e6e6e6;
+    --color-screen-top-content : black;
+
+    --color-screen-card : #9c9b9b;
+    --color-screen-card-name : #637c6e;
+    --color-screen-card-content : rgb(71, 71, 71);
+    --color-screen-card-buttonStopCharge : rgba(255, 0, 0, 0.747);
+    --color-screen-card-light : rgba(0, 0, 0, 0.486);
+    --color-screen-card-shadow : 0 0rem 3rem var(--color-screen-card-light);
+
+    --content-screen-card-languare-en : 'Available for charging';
+}
+
+.dask-mode-variables{
+    --color-screen-background:rgb(39, 39, 39);
+    --color-screen-top-content : white;
+
+    --color-screen-card : #9c9c9c;
+    --color-screen-card-name : #637c6e;
+    --color-screen-card-content : rgba(255, 255, 255, 0.829);
+    --color-screen-card-light : rgba(192, 192, 192, 0.349);
+    --color-screen-card-shadow : 0 0rem 3rem var(--color-screen-card-light);
+}
+
+.vn{
+    --content-screen-card-languare-vn : 'Trụ đã sẵn sàng sạc';
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html{
+    font-size: 14px;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2{
+    font-weight: 600;
+    font-size: 1.0rem;
+}
+
+h3{
+    font-weight: 500;
+    font-size: 0.87rem;
+}
+
+.logo-red{
+    color: red;
+}
+
+.logo-blue{
+    color: rgb(0, 217, 255);
+}
+
+body{
+    user-select: none;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 18px; /* Increased font size */
+    font-weight: 700; /* Increased font weight */
+    line-height: 1.5;
+    color: #333; /* Dark color for better contrast */
+    -webkit-font-smoothing: antialiased; /* For better font rendering on Webkit browsers */
+    -moz-osx-font-smoothing: grayscale; /* For better font rendering on macOS */
+    background-color: var(--color-screen-background);
+}
+/*Secreen*/
+.screen{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+/*Secreen top*/
+.screen .screen-top {
+    display: grid;
+    width: 96%;
+    height: 15vh;
+    grid-template-columns: 16rem auto 15rem;
+    color: var(--color-screen-top-content);
+}
+/*Secreen top left logo and funtion toggle*/
+.screen .screen-top .top-left {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.top-left .logo_RB {
+    background-image: url(images/Logo.png);
+    background-size: 100%;
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+}
+.top-left h2{
+    height: 25px;
+}
+/*Secreen top center station number*/
+.screen .screen-top .top-center{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.top-center span::after{
+    content: 'Charger 2';
+    font-size: 60px;
+}
+/*Secreen top right realtime and language*/
+.screen .screen-top .top-right{
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0.2rem;
+}
+.top-right .item{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+.top-right .item i{
+    font-size: 1.2rem;
+    width: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top-right .item:nth-child(2) h2{
+    /*Language*/
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 2.6rem;
+    width: 5.2rem;
+}
+.top-right .item:nth-child(2) h2.active{
+    display: flex;
+    cursor: pointer;
+    background-color: var(--color-screen-active);
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+.top-right .item:nth-child(3){
+    /*Dask-mode*/
+    background-color: var(--color-screen-card);
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+    height: 2.6rem;
+    width: 6.8rem;
+}
+.top-right .item:nth-child(3) i{
+    font-size: 1.2rem;
+    height: 2.6rem;
+    width: 5.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top-right .item:nth-child(3) i.active{
+    background-color: var(--color-screen-active);
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+/*Secreen center*/
+.screen .screen-center{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+/*Secreen center card*/
+.screen .screen-center .card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+/*Secreen center card name*/
+.screen .screen-center .card .name{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+    height: 60px;
+    width: auto;
+    background-color: var(--color-screen-card-name);
+    border-radius: 15px 15px 0 0;
+    box-shadow: var(--color-screen-card-shadow);
+    color: var(--color-screen-card-content);
+}
+.name h1{
+    font-size: 50px;
+}
+.name h2{
+    font-size: 30px;
+}
+.name .ccs2-img{
+    height: 40px;
+    width: 30px;
+    background-image: url(images/ccs2.png);
+    background-size: 100%;
+    object-fit: cover;
+}
+.name i{
+    content: "a";
+    font-size: 40px;
+    color: blue;
+    display: flex;
+    align-items: center;
+}
+.name i::after{
+    content: "Temperature cable";
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+}
+/*Secreen center card-center*/
+.screen .screen-center .card .main{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 28vw;
+    min-width: 480px;
+    /* min-width: 880px; */
+    max-height: 70vh;
+    min-height: 550px;
+    justify-content: space-between;
+    flex: 1;
+    border-radius: 0 15px 15px 15px;
+    background-color: var(--color-screen-card);
+    box-shadow: var(--color-screen-card-shadow);
+}
+/*Secreen center .state-charging*/
+.screen .screen-center .card .main .state-charging{
+    /* position: absolute;
+    justify-content: space-evenly; */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+
+    z-index: 999; 
+}
+/*Secreen center .state-available*/
+.screen .screen-center .card .main .state-available{
+    width: 100%; height: 100%;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--border-radius-1);
+    background-color: var(--color-screen-card);
+    color: var(--color-available);
+
+}
+.state-available i{
+    width: 100%; height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 80px;
+}
+.state-available span{
+    width: 100%; height: 70%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    word-break: break-word;
+}
+.state-available span:after{
+    content: var(--content-screen-card-languare-en);
+    font-size: 60px;
+    font-weight: 1000px;
+}
+/*Secreen center box-infos state-qrCode*/
+.screen .screen-center .card .main .state-qrCode{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    border-radius: 0 2% 2% 2%;
+    z-index: 999;
+    background-color: var(--color-screen-card);
+}
+.state-qrCode span::after{
+    content: 'Please scan QR code';
+    font-size: 40px;
+    font-weight: 1000px;
+    z-index: 999;
+    color: black;
+}
+/*Secreen center box-infos state-waiting*/
+.screen .screen-center .card .main .state-waiting{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    border-radius: 0 2% 2% 2%;
+    z-index: 999;
+    background-color: var(--color-screen-card);
+}
+.state-waiting i{
+    font-size: 80px;
+    z-index: 999;
+    color: var(--color-purple-waiting);
+}
+.state-waiting span::after{
+    content: 'Please wait';
+    font-size: 60px;
+    font-weight: 1000px;
+    z-index: 999;
+    color: var(--color-purple-waiting);
+}
+/*Secreen center box-infos state-complete*/
+.screen .screen-center .card .main .state-complete{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    bottom: 0;
+    border-radius: 0 2% 2% 2%;
+    z-index: 999;
+    background-color: wheat;
+}
+.state-complete i{
+    font-size: 80px;
+    font-weight: 1000px;
+    z-index: 999;
+    color: rgb(172, 146, 0);
+}
+.state-complete span::after{
+    content: 'Completed';
+
+    font-size: 80px;
+    font-weight: 1000px;
+    z-index: 999;
+    color: rgb(172, 146, 0);
+}
+/*Secreen center box-infos state-faulted*/
+.screen .screen-center .card .main .state-faulted{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    bottom: 0;
+    border-radius: 0 2% 2% 2%;
+    z-index: 999;
+    background-color: white;
+    animation: animate-border-fault 0.5s linear infinite;
+}
+.state-faulted i{
+    font-size: 80px;
+    font-weight: 1000px;
+    z-index: 999;
+    color: red;
+}
+.state-faulted span:nth-child(2)::after{
+    content: 'Faulted';
+    margin: 80px auto;
+    font-size: 80px;
+    font-weight: 1000px;
+    z-index: 999;
+    color: red;
+}
+.state-faulted span:nth-child(3)::after{
+    content: 'Cable not available';
+    font-size: 40px;
+    font-weight: 1000px;
+    z-index: 999;
+    color: black;
+}
+/*Secreen center box-infos state-reset*/
+.screen .screen-center .card .main .state-reset{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    bottom: 0;
+    border-radius: 0 2% 2% 2%;
+    z-index: 999;
+    background-color: white;
+    animation: animate-border-fault 0.5s linear infinite;
+}
+.state-reset i{
+    font-size: 80px;
+    font-weight: 1000px;
+    z-index: 999;
+    color: red;
+}
+.state-reset span:nth-child(2)::after{
+    content: 'Cable reset';
+    margin: 80px auto;
+    font-size: 80px;
+    font-weight: 1000px;
+    z-index: 999;
+    color: red;
+}
+.state-reset span:nth-child(3)::after{
+    content: 'Cable not available';
+    font-size: 40px;
+    font-weight: 1000px;
+    z-index: 999;
+    color: black;
+}
+/*Secreen center box-infos state-reservation*/
+.screen .screen-center .card .main .state-reservation{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    bottom: 0;
+    border-radius: 0 2% 2% 2%;
+    z-index: 999;
+    background-color: white;
+    animation: animate-border-fault 0.5s linear infinite;
+}
+.state-reservation span::after{
+    content: 'Reservation';
+    margin: 80px auto;
+    font-size: 80px;
+    font-weight: 1000px;
+    z-index: 999;
+    color: rgb(4, 0, 255);
+}
+/*Secreen center box-infos state-update*/
+.screen .screen-center .card .main .state-update{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    bottom: 0;
+    border-radius: 0 2% 2% 2%;
+    z-index: 999;
+    background-color: white;
+    animation: animate-border-fault 0.5s linear infinite;
+}
+.state-update span::after{
+    content: 'Update';
+    margin: 80px auto;
+    font-size: 80px;
+    font-weight: 1000px;
+    z-index: 999;
+    color: rgb(0, 0, 0);
+}
+@keyframes follow-the-leader {
+    0% {
+      -webkit-transform: rotate(0deg) translateY(-200%);
+      transform: rotate(0deg) translateY(-200%);
+    }
+  
+    60%,
+  100% {
+      -webkit-transform: rotate(360deg) translateY(-200%);
+      transform: rotate(360deg) translateY(-200%);
+    }
+}
+
+.follow-the-leader {
+height: 24px;
+position: relative;
+margin: 30px auto;
+width: 24px;
+}
+
+.follow-the-leader div {
+-webkit-animation: follow-the-leader 1.875s infinite backwards;
+animation: follow-the-leader 1.875s infinite backwards;
+background-color: #000000;
+border-radius: 100%;
+height: 100%;
+position: absolute;
+width: 100%;
+}
+
+.follow-the-leader div:nth-child(1) {
+-webkit-animation-delay: 0.15s;
+animation-delay: 0.15s;
+background-color: #000000;
+}
+
+.follow-the-leader div:nth-child(2) {
+-webkit-animation-delay: 0.3s;
+animation-delay: 0.3s;
+background-color: #000000;
+}
+
+.follow-the-leader div:nth-child(3) {
+-webkit-animation-delay: 0.45s;
+animation-delay: 0.45s;
+background-color: #000000;
+}
+
+.follow-the-leader div:nth-child(4) {
+-webkit-animation-delay: 0.6s;
+animation-delay: 0.6s;
+background-color: #000000;
+}
+
+.follow-the-leader div:nth-child(5) {
+-webkit-animation-delay: 0.75s;
+animation-delay: 0.75s;
+background-color: #000000;
+}
+/* Car Image display  */
+.screen .screen-center .card .main .car-imgs{
+    display: flex;
+    position: relative;
+    height: 50%;
+    width: 100%;
+    z-index: 1;
+    object-fit: cover;
+}
+.screen .screen-center .card .main .car-imgs.active{
+    visibility: hidden;
+}
+.screen .screen-center .card .main .car-img1{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    object-fit: cover;
+}
+.screen .screen-center .card .main .car-img2{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    object-fit: cover;
+    clip-path: inset(0 50% 0 0);
+    filter: hue-rotate(90deg);
+    animation: animate-charging 3s linear infinite;
+}
+.screen .screen-center .card .main .car-shadow{
+    position: absolute;
+    height: 40%;
+    width: 80%;
+    z-index: 0;
+    left: 10%;
+    top:40%;
+    border-radius: 60%;
+    background-color: rgba(0, 255, 191, 0.6);
+}
+#c01 .car-shadow{
+    animation: animate-card-1-charging 3s linear infinite;
+}
+#c02 .car-shadow{
+    animation: animate-card-2-charging 4s linear infinite;
+}
+/*Secreen center card-infors*/
+.screen .screen-center .card .main .infos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+    /* gap: 5px; */
+}
+/*general infomation*/
+.screen .screen-center .card .main .infos .info{
+    display: flex;    
+    align-items: center;
+    justify-content: left;
+    border-bottom: 1px solid var(--color-screen-card-content);
+    /* height: 60px;  */
+    height: 45px; 
+    font-size: 50px;
+    color: var(--color-screen-card-content);
+}
+.screen .screen-center .card .main .infos .info.active{
+    display: none;    
+}
+.info i{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    height: 40px;
+    width: 60px;
+    color: var(--color-screen-card-content);
+}
+.info h2{
+    font-size: 20px;
+    font-weight: 50px;
+    width: 200px;
+    color: var(--color-screen-card-content);
+}
+.info span{
+    display: flex;
+    /* width: 300px; */
+    font-size: 40px;
+}
+/*custom infomation*/
+/*english-content infomation*/
+.info:nth-child(1) span::after{
+    animation: animate-state-charging 4s linear infinite;
+    content: "Charging";
+}
+.info:nth-child(2) h2::after{
+    content: "Battery";
+}
+.info:nth-child(3) h2::after{
+    content: "Power";
+}
+.info:nth-child(4) h2::after{
+    content: "Remaining time";
+}
+.info:nth-last-child(2) span::after{
+    content: "Stop";
+}
+.info:nth-last-child(1) span::after{
+    content: "Detail";
+}
+/*custom infomation*/
+.screen .screen-center .card .main .infos .info:first-child{
+    display: flex;
+    color: var(--color-green-charging);
+    justify-content: center;
+    border-bottom: 1px solid transparent;
+    animation: animation duration timing-function delay iteration-count direction fill-mode;
+}
+.screen .screen-center .card .main .infos .info:first-child span{
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    height: 50px;
+    width: 300px;
+}
+.screen .screen-center .card .main .infos .info:nth-child(2){
+    height: 80px; 
+}
+.screen .screen-center .card .main .infos .info:nth-child(2) span{
+    display: flex;
+    font-size: 80px;
+    background-image: linear-gradient(to left bottom,#0026ff ,#ff0000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.screen .screen-center .card .main .infos .info:nth-last-child(2){
+    height: 70px;
+    color: var(--color-screen-card-buttonStopCharge);
+    justify-content: center;
+    border-bottom: 1px solid transparent;
+}
+.info:nth-last-child(2) span{
+    height: 40px;
+    width: 200px;
+    border-radius: var(--border-radius-2);
+    border: 2px solid  var(--color-screen-card-buttonStopCharge);
+    color: var(--color-screen-card-content);
+    background-color:  var(--color-screen-card-buttonStopCharge);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.screen .screen-center .card .main .infos .info:nth-last-child(1){
+    color: var(--color-screen-card-buttonStopCharge);
+    justify-content: center;
+    border-bottom: 1px solid transparent;
+}
+.info:nth-last-child(1) span{
+    /* height: 50px; width: 300px;*/
+    border-radius: var(--border-radius-2);
+    color: var(--color-screen-card-content);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+/*Secreen center card-infors-detail*/
+.screen .screen-center .card .main .infos-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%; height: 100%;
+    color: var(--color-screen-card-content);
+    /* gap: 5px; */
+}
+/*card-infors-detail*/
+.screen .screen-center .card .main .infos-detail .firstColumn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+    height: 80px;
+}
+.screen .screen-center .card .main .infos-detail .secondColumn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.screen .screen-center .card .main .infos-detail .secondColumn .info-detail span{
+    font-size: 30px;
+}
+.screen .screen-center .card .main .infos-detail .secondColumn .firstRow{
+    width: 100%;
+}
+.screen .screen-center .card .main .infos-detail .secondColumn .secondRow{
+    width: 100%;
+}
+.screen .screen-center .card .main .infos-detail .thirdColumn{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+/*english-content infomation*/
+.infos-detail .firstRow .info-detail:nth-child(1) h2::after{
+    content: "Temperature";
+}
+.infos-detail .firstRow .info-detail:nth-child(2) h2::after{
+    content: "Power";
+}
+.infos-detail .firstRow .info-detail:nth-child(3) h2::after{
+    content: "Voltage";
+}
+.infos-detail .firstRow .info-detail:nth-child(4) h2::after{
+    content: "Current";
+}
+.infos-detail .secondRow .info-detail:nth-child(1) h2::after{
+    content: "Delivered energy";
+}
+.infos-detail .secondRow .info-detail:nth-child(2) h2::after{
+    content: "Remainning time";
+}
+.infos-detail .secondRow .info-detail:nth-child(3) h2::after{
+    content: "Charging time";
+}
+.infos-detail .secondRow .info-detail:nth-child(4) h2::after{
+    content: "Battery";
+}
+/* custom */
+.screen .screen-center .card .main .infos-detail .firstColumn h1{
+    font-size: 3rem;
+}
+.screen .screen-center .card .main .infos-detail .thirdColumn .info-detail{
+    justify-content: center;
+    width: 100%;
+}
+.screen .screen-center .card .main .infos-detail .thirdColumn .info-detail i{
+    height: 60px; width: 60px;
+    border-radius: 100%;
+    border: 1px solid var(--color-screen-card-content);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+/**/
+.screen .screen-center .card .main .infos-detail .info-detail{
+    display: flex;    
+    align-items: center;
+    justify-content: left;
+    position: relative;
+    height: 60px; width: 100%;
+    font-size: 50px;
+    color: var(--color-screen-card-content);
+}
+.info-detail i{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    height: 40px;
+    width: 60px;
+    color: var(--color-screen-card-content);
+}
+.info-detail h2{
+    font-size: 20px;
+    font-weight: 50px;
+    width: 200px;
+    color: var(--color-screen-card-content);
+}
+.info-detail span{
+    display: flex;
+    font-size: 40px;
+}
+
+/*
+*   Screen Bottom
+*   Newversion 3.1.4
+*/
+.screen .screen-bottom{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+.screen .screen-bottom p{
+    font-size: 20px;
+    font-weight: 50px;
+    color: var(--color-screen-card-content);
+    background-color: white;
+    animation: animate-border-fault 0.5s linear infinite;
+}
+/*Animation*/
+@keyframes animate-border-fault {
+    0% {
+        border: 2px solid red;
+    }
+
+    100% {
+        border: 2px solid yellow;
+    }
+}
+
+@keyframes animate-card-1-charging {
+    0% {
+        background-color: rgba(0, 255, 191, 0.5);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-)
+        ;
+    }
+    5% {
+        background-color: rgba(0, 255, 191, 0.5);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 20px  var(--color-screen-card)
+        ;
+    }
+    10% {
+        background-color: rgba(0, 255, 191, 0.5);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.3)
+        ,0 0 20px 30px  var(--color-screen-card)
+        ;
+    }
+    15% {
+        background-color: rgba(0, 255, 191, 0.5);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 106, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.3)
+        ,0 0 20px 30px  var(--color-screen-card)
+    
+        ,0 0 5px 35px rgba(0, 255, 191, 0.5)
+        ,0 0 10px 40px  var(--color-screen-card)
+        ;
+    }
+    20% {
+        background-color: rgba(0, 255, 191, 0.5);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.3)
+        ,0 0 20px 30px  var(--color-screen-card)
+    
+        ,0 0 5px 35px rgba(0, 255, 191, 0.5)
+        ,0 0 10px 40px  var(--color-screen-card)
+        ;
+    }
+    25% {
+        background-color: rgba(0, 255, 191, 0.6);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.3)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.4)
+        ,0 0 20px 30px  var(--color-screen-card)
+    
+        ,0 0 5px 35px rgba(0, 255, 191, 0.5)
+        ,0 0 10px 40px  var(--color-screen-card)
+        ;
+    }
+    40% {
+        background-color: rgba(0, 255, 191, 0.6);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.5)
+        ,0 0 20px 30px  var(--color-screen-card)
+    
+        ,0 0 5px 35px rgba(0, 255, 191, 0.4)
+        ,0 0 10px 40px  var(--color-screen-card)
+        ;
+    }
+    70% {
+        background-color: rgba(0, 255, 191, 0.5);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.5)
+        ,0 0 20px 30px  var(--color-screen-card)
+    
+        ,0 0 5px 35px rgba(0, 255, 191, 0.7)
+        ,0 0 20px 40px  var(--color-screen-card)
+        ;
+    }
+    100% {
+        background-color: rgba(0, 255, 191, 0.6);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.4)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 30px  var(--color-screen-card)
+    
+        ,0 0 5px 35px rgba(0, 255, 191, 0.5)
+        ,0 0 10px 40px  var(--color-screen-card)
+        ;
+    }
+}
+
+@keyframes animate-card-2-charging {
+    0% {
+        background-color: rgba(0, 255, 191, 0.5);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-)
+        ;
+    }
+    5% {
+        background-color: rgba(0, 255, 191, 0.5);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 20px  var(--color-screen-card)
+        ;
+    }
+    10% {
+        background-color: rgba(0, 255, 191, 0.5);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.3)
+        ,0 0 20px 30px  var(--color-screen-card)
+        ;
+    }
+    15% {
+        background-color: rgba(0, 255, 191, 0.5);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 106, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.3)
+        ,0 0 20px 30px  var(--color-screen-card)
+    
+        ,0 0 5px 35px rgba(0, 255, 191, 0.5)
+        ,0 0 10px 40px  var(--color-screen-card)
+        ;
+    }
+    20% {
+        background-color: rgba(0, 255, 191, 0.5);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.3)
+        ,0 0 20px 30px  var(--color-screen-card)
+    
+        ,0 0 5px 35px rgba(0, 255, 191, 0.5)
+        ,0 0 10px 40px  var(--color-screen-card)
+        ;
+    }
+    25% {
+        background-color: rgba(0, 255, 191, 0.6);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.3)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.4)
+        ,0 0 20px 30px  var(--color-screen-card)
+    
+        ,0 0 5px 35px rgba(0, 255, 191, 0.5)
+        ,0 0 10px 40px  var(--color-screen-card)
+        ;
+    }
+    40% {
+        background-color: rgba(0, 255, 191, 0.6);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.5)
+        ,0 0 20px 30px  var(--color-screen-card)
+    
+        ,0 0 5px 35px rgba(0, 255, 191, 0.4)
+        ,0 0 10px 40px  var(--color-screen-card)
+        ;
+    }
+    70% {
+        background-color: rgba(0, 255, 191, 0.5);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.5)
+        ,0 0 20px 30px  var(--color-screen-card)
+    
+        ,0 0 5px 35px rgba(0, 255, 191, 0.7)
+        ,0 0 20px 40px  var(--color-screen-card)
+        ;
+    }
+    100% {
+        background-color: rgba(0, 255, 191, 0.6);
+        box-shadow: 0 0 20px 5px rgba(0, 255, 191, 0.829)
+        ,0 0 10px 10px  var(--color-screen-card)
+    
+        ,0 0 5px 15px rgba(0, 255, 191, 0.4)
+        ,0 0 20px 20px  var(--color-screen-card)
+    
+        ,0 0 5px 25px rgba(0, 255, 191, 0.2)
+        ,0 0 20px 30px  var(--color-screen-card)
+    
+        ,0 0 5px 35px rgba(0, 255, 191, 0.5)
+        ,0 0 10px 40px  var(--color-screen-card)
+        ;
+    }
+}
+
+@keyframes animate-state-charging {
+    0% {
+        color: rgba(0, 255, 191, 0.9);
+    }
+    25% {
+        color: rgba(0, 255, 191, 0.4);
+    }
+    50% {
+        color: rgba(0, 255, 191, 0.9);
+    }
+    75% {
+        color: rgba(0, 255, 191, 0.4);
+    }
+    100% {
+        color: rgba(0, 255, 191, 0.9);
+    }
+}
+
+@keyframes bounce-loader {
+    to {
+        opacity: 0.1;
+        transform: translateY(-1rem);
+    }
+}
+  
+.bounce-loading {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+  
+.bounce-loading > div {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.5rem;
+    background: var(--color-purple-waiting);
+    border-radius: 50%;
+    animation: bounce-loader 0.6s infinite alternate;
+}
+  
+.bounce-loading > div:nth-child(2) {
+    animation-delay: 0.15s;
+}
+  
+.bounce-loading > div:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.bounce-loading > div:nth-child(4) {
+    animation-delay: 0.37s;
+}
+  
+.bounce-loading > div:last-child {
+    animation-delay: 0.45s;
+}
+
+@keyframes flipping {
+    0%, 80% {
+      transform: rotateY(360deg);
+    }
+}
+
+/*Việt sub*/
+.top-center span.active::after{
+    content: "Trụ sạc 2";
+}
+.state-available span.vn:after{
+    content: var(--content-screen-card-languare-vn);
+}
+.state-waiting span.active::after{
+    content: 'Vui lòng chờ';
+}
+.state-qrCode span.active::after{
+    content: 'Vui lòng quét QR code';
+}
+.state-faulted span:nth-child(2).active:after{
+    content: 'Lỗi';
+}
+.state-faulted span:nth-child(3).active:after{
+    content: 'Trụ sạc chưa sẵn sàng';
+}
+.state-complete span.active::after{
+    content: 'Hoàn thành';
+}
+.state-reset span:nth-child(2).active:after{
+    content: 'Trụ sạc reset';
+}
+.state-reset span:nth-child(3).active:after{
+    content: 'Trụ sạc chưa sẵn sàng';
+}
+.state-reservation span.active:after{
+    content: 'Đặt chỗ';
+}
+.state-update span.active:after{
+    content: 'Cập nhật';
+}
+.info:nth-child(1) span.active::after{
+    content: "Đang sạc";
+}
+.info:nth-child(2) h2.active::after{
+    content: "Mức pin";
+}
+.info:nth-child(3) h2.active::after{
+    content: "Công suất sạc";
+}
+.info:nth-child(4) h2.active::after{
+    content: "Thời gian còn lại";
+}
+.info:nth-last-child(2) span.active::after{
+    content: "Dừng";
+}
+.info:nth-last-child(1) span.active::after{
+    content: "Chi tiết";
+}
+/*english-content infomation-detail*/
+.infos-detail .firstRow .info-detail:nth-child(1) h2.active::after{
+    content: "Nhiệt độ";
+}
+.infos-detail .firstRow .info-detail:nth-child(2) h2.active::after{
+    content: "Công suất";
+}
+.infos-detail .firstRow .info-detail:nth-child(3) h2.active::after{
+    content: "Điện áp";
+}
+.infos-detail .firstRow .info-detail:nth-child(4) h2.active::after{
+    content: "Dòng điện";
+}
+.infos-detail .secondRow .info-detail:nth-child(1) h2.active::after{
+    content: "Điện năng";
+}
+.infos-detail .secondRow .info-detail:nth-child(2) h2.active::after{
+    content: "Thời gian còn lại";
+}
+.infos-detail .secondRow .info-detail:nth-child(3) h2.active::after{
+    content: "Thời gian đã sạc";
+}
+.infos-detail .secondRow .info-detail:nth-child(4) h2.active::after{
+    content: "Mức pin";
+}
+.name i.active::after{
+    content: "Nhiệt độ cáp";
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+}

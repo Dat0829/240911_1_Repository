@@ -1,0 +1,287 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css" /> <!-- icon + sharp -->
+    <link rel="stylesheet" href="s02.css"> <!-- Style -->
+    <script type="text/javascript" src="jquery-2.0.2.min.js"></script> <!-- javascript -->
+    <script type="text/javascript" src="genQR/qrcode.min.js"></script> <!-- javascript -->
+    <script type="text/javascript" src="s02.js"></script> <!-- javascript -->
+    <title>Dashboard EVcharger Aplication</title>
+</head>
+<body>
+    <div class="hidden" style="display: none;"></div>
+    <!-- Cable 1 s02 -->
+    <div class="screen" id="s02">
+        <!-- Top Screen -->
+        <div class="screen-top">
+            <div class="top-left" onmousedown="logout(true)" onmouseup="logout(false)" onmouseleave="logout(false)" ontouchstart="logout(true)" ontouchend="logout(false)"> 
+                <div class="logo_RB">
+                </div>
+                <h2>
+                    <span class="logo-red">Red</span>
+                     & 
+                     <span class="logo-blue">Blue</span>
+                     Technology Co.,LTD
+                </h2>
+            </div>
+            <div class="top-center">
+                <span></span>
+            </div>
+            <div class="top-right">
+                <div class="item">
+                    <i class="fa-regular fa-clock"></i>
+                    <h2 id="time">yy-mm-dd hh:mm:ss</h2>
+                </div>
+                <div class="item">
+                    <i class="fa-solid fa-earth-asia"></i>
+                    <h2 class="active">English</h2>
+                    <h2>Tiếng việt</h2>
+                </div>
+                
+                <div class="item">
+                    <i class="fa-solid fa-sun active"></i>
+                    <i class="fa-solid fa-moon"></i>
+                </div>
+            </div>
+        </div>
+        <!-- End of Top Screen -->
+
+        <!-- Center Screen -->
+        <div class="screen-center">
+            <!-- Card 1 -->
+            <div class="card" id="c03">
+                <!-- Name Card 1 -->
+                <div class="name">
+                    <div class="ccs2-img"></div>
+                    <h1>3</h1>
+                    <h2></h2>
+                    <i class="fa-solid fa-temperature-arrow-up fa-fade"></i>
+                </div>
+                <!-- End of Name Card 1 -->
+                <!-- Data Card 1 -->
+                <div class="main">
+
+                    <div class="state-available">
+                        <i class="fa-solid fa-plug-circle-check"></i>
+                        <span></span>
+                    </div>
+
+                    <div class="state-waiting">
+                        <i class="fa-solid fa-circle-pause"></i>
+                        <div class="bounce-loading">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <span></span>
+                    </div>
+
+                    <div class="state-qrCode">
+                        <div class="qrcode"></div>
+                        <span></span>
+                    </div>
+
+                    <div class="state-complete">
+                        <i class="fa-sharp fa-solid fa-circle-check fa-bounce"></i>
+                        <span></span>
+                    </div>
+
+                    <div class="state-faulted"> 
+                        <i class="fa-solid fa-circle-xmark"></i>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="state-reset"> 
+                        <i class="fa-solid fa-circle-xmark"></i>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="state-reservation"> 
+                        <span></span>
+                    </div>
+
+                    <div class="state-update"> 
+                        <span></span>
+                        <div class="follow-the-leader">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <div class="state-charging">
+                        
+                        <div class="car-imgs">
+                            <img src="images/Ecar.png" class="car-img1">
+                            <img src="images/Ecar - Copy2.png" class="car-img2">
+                            <div class="car-shadow"></div>
+                        </div>
+
+                        <div class="infos">
+                            <div class="info"><span></span></div>
+                            <div class="info"><i class="fa-solid fa-car-battery"></i><h2></h2><span>50 %</span></div>
+                            <div class="info"><i class="fa-solid fa-charging-station"></i><h2></h2><span>150 kw</span></div>
+                            <div class="info"><i class="fa-solid fa-stopwatch"></i></i><h2></h2><span>1h 50</span></div>
+                            <div class="info" style="display: none;"><span></span></div>
+                            <div class="info"><span></span></div>
+                        </div>
+                    </div>
+
+                    <div class="infos-detail">
+                        <div class="firstColumn">
+                            <h1>Parameter detail</h1>
+                        </div>
+
+                        <div class="secondColumn">
+                            <div class="firstRow">
+                                <div class="info-detail"><i class="fa-solid fa-temperature-high"></i><h2></h2><span>30 ℃</span></div>
+                                <div class="info-detail"><i class="fa-solid fa-bolt"></i></i><h2></h2><span>40 kw</span></div>
+                                <div class="info-detail"><i class="fa-solid fa-v"></i><h2></h2><span>440 V</span></div>
+                                <div class="info-detail"><i class="fa-solid fa-a"></i><h2></h2><span>33.4 A</span></div>
+                            </div>
+                            <div class="secondRow">
+                                <div class="info-detail"><i class="fa-solid fa-charging-station"></i><h2></h2><span>150 kwh</span></div>
+                                <div class="info-detail"><i class="fa-solid fa-stopwatch"></i></i><h2></h2><span>1h 50</span></div>
+                                <div class="info-detail"><i class="fa-solid fa-business-time"></i><h2></h2><span>01:50:00</span></div>
+                                <div class="info-detail"><i class="fa-solid fa-car-battery"></i><h2></h2><span>30 %</span></div>
+                            </div>
+                        </div>
+                        <div class="thirdColumn">
+                            <div class="info-detail"><i class="fa-solid fa-circle-left"></i></div>
+                        </div>
+                    </div>
+                        
+                </div>
+            </div>
+            <!-- End of Data Card 1 -->
+
+            <!-- Card 2 -->
+            <div class="card" id="c04">
+                <!-- Name Card 2 -->
+                <div class="name">
+                    <div class="ccs2-img"></div>
+                    <h1>4</h1>
+                    <h2></h2>
+                    <i class="fa-solid fa-temperature-arrow-up fa-fade"></i>
+                </div>
+                <!-- End of Name Card 2 -->
+                <!-- Data Card 2 -->
+                <div class="main">
+
+                    <div class="state-available">
+                        <i class="fa-solid fa-plug-circle-check"></i>
+                        <span></span>
+                    </div>
+
+                    <div class="state-waiting">
+                        <i class="fa-solid fa-circle-pause"></i>
+                        <div class="bounce-loading">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <span></span>
+                    </div>
+
+                    <div class="state-qrCode">
+                        <div class="qrcode"></div>
+                        <span></span>
+                    </div>
+
+                    <div class="state-complete">
+                        <i class="fa-sharp fa-solid fa-circle-check fa-bounce"></i>
+                        <span></span>
+                    </div>
+
+                    <div class="state-faulted"> 
+                        <i class="fa-solid fa-circle-xmark"></i>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="state-reset"> 
+                        <i class="fa-solid fa-circle-xmark"></i>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="state-reservation"> 
+                        <span></span>
+                    </div>
+
+                    <div class="state-update"> 
+                        <span></span>
+                        <div class="follow-the-leader">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <div class="state-charging">
+                        
+                        <div class="car-imgs">
+                            <img src="images/Ecar.png" class="car-img1">
+                            <img src="images/Ecar - Copy2.png" class="car-img2">
+                            <div class="car-shadow"></div>
+                        </div>
+
+                        <div class="infos">
+                            <div class="info"><span></span></div>
+                            <div class="info"><i class="fa-solid fa-car-battery"></i><h2></h2><span>50 %</span></div>
+                            <div class="info"><i class="fa-solid fa-charging-station"></i><h2></h2><span>150 kw</span></div>
+                            <div class="info"><i class="fa-solid fa-stopwatch"></i></i><h2></h2><span>1h 50</span></div>
+                            <div class="info" style="display: none;"><span></span></div>
+                            <div class="info"><span></span></div>
+                        </div>
+                    </div>
+
+                    <div class="infos-detail">
+                        <div class="firstColumn">
+                            <h1>Parameter detail</h1>
+                        </div>
+
+                        <div class="secondColumn">
+                            <div class="firstRow">
+                                <div class="info-detail"><i class="fa-solid fa-temperature-high"></i><h2></h2><span>30 ℃</span></div>
+                                <div class="info-detail"><i class="fa-solid fa-bolt"></i></i><h2></h2><span>40 kw</span></div>
+                                <div class="info-detail"><i class="fa-solid fa-v"></i><h2></h2><span>440 V</span></div>
+                                <div class="info-detail"><i class="fa-solid fa-a"></i><h2></h2><span>33.4 A</span></div>
+                            </div>
+                            <div class="SecondRow">
+                                <div class="info-detail"><i class="fa-solid fa-charging-station"></i><h2></h2><span>150 kwh</span></div>
+                                <div class="info-detail"><i class="fa-solid fa-stopwatch"></i></i><h2></h2><span>1h 50</span></div>
+                                <div class="info-detail"><i class="fa-solid fa-business-time"></i><h2></h2><span>01:50:00</span></div>
+                                <div class="info-detail"><i class="fa-solid fa-car-battery"></i><h2></h2><span>30 %</span></div>
+                            </div>
+                        </div>
+                        <div class="thirdColumn">
+                            <div class="info-detail"><i class="fa-solid fa-circle-left"></i></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End of Data Card 2 -->
+        </div>
+        <!-- End of Center Screen -->
+        
+        <!-- Bottom Screen -->
+        <div class="screen-bottom">
+            <p></p>
+        </div>
+        <!-- End of Bottom Screen -->
+    </div>
+</body>
+</html>
