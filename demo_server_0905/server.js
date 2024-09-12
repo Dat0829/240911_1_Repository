@@ -50,6 +50,7 @@ app.post('/get', async (req, res) => {
     console.error(error);
   }
 });
+
 app.post('/set', async (req, res) => {
   try {
     if (!req.body || !req.body.message ) {
@@ -96,14 +97,18 @@ async function autoLoginPlc(){
         }
       }),
       (isFail => {
-        if(isFail) setTimeout(autoLoginPlc, 5000);
+        if(isFail) setTimeout(autoLoginPlc, 10000);
       }));
     }
   }
   catch(error) {
-    plc.urlUpdate(`stop`);
+    tempMode = `stop`;
+    if(tempMode!= plcMode){
+      plc.urlUpdate(`stop`);
+      plcMode = `stop`;
+    }
     console.error('Server has an error:', error);
-    setTimeout(autoLoginPlc, 5000);
+    setTimeout(autoLoginPlc, 10000);
   }
 }
 
@@ -115,6 +120,5 @@ async function urlUpgrade(mode){
   }
   catch(error) {
     console.error('Server has an error in:', error);
-    setTimeout(urlUpgrade, 5000);
   }
 }
