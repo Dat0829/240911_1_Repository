@@ -50,7 +50,6 @@ app.post('/get', async (req, res) => {
     console.error(error);
   }
 });
-
 app.post('/set', async (req, res) => {
   try {
     if (!req.body || !req.body.message ) {
