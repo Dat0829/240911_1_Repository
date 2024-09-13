@@ -1,0 +1,391 @@
+[
+  {
+    "message": "URL_login",
+    "payload": {
+      "execution": true,
+      "URL": "http://127.0.0.1:3000/login.html",
+      "user": [
+        {"operator": "RB123456"},
+        {"admin": "AD123123"}
+      ],
+      "EVSE": 1
+    }
+  },
+  {
+    "message": "URL_await",
+    "payload": {
+      "execution": true,
+      "URL": "http://127.0.0.1:3000/await.html",
+      "EVSE": 1
+    }
+  },
+  {
+    "message": "auto_run_url",
+    "payload": {
+      "execution": true,
+      "user": "RB",
+      "password": "Rb@123456",
+      "EVSE": 1
+    }
+  },
+  {
+    "message": "user_authentication",
+    "payload": {
+      "execution": true,
+      "user": "RB",
+      "password": "Rb@123456"
+    }
+  },
+  {
+    "message": "user_login",
+    "payload": {
+      "execution": true
+    }
+  },
+  {
+    "message": "user_logout",
+    "payload": {
+      "execution": true
+    }
+  },
+  {
+    "message": "auto_read_xls",
+    "payload": {
+      "execution": true
+    }
+  },
+  {
+    "message": "auto_login",
+    "payload": {
+      "execution": true,
+      "ip": "100.100.4.1",
+      "user": "RB",
+      "password": "Rb@123456"
+    }
+  },
+  {
+    "message": "listError",
+    "payload": [
+      {
+        "name": "Can Bus Error",
+        "id": "1",
+        "severity": "2"
+      },
+      {
+        "name": "Disconnected Module",
+        "id": "2",
+        "severity": "1"
+      },
+      {
+        "name": "Internal Fault",
+        "id": "3",
+        "severity": "1"
+      },
+      {
+        "name": "Slave CP loses connection",
+        "id": "4",
+        "severity": "1"
+      },
+      {
+        "name": "AC Over / Under Voltage",
+        "id": "5",
+        "severity": "2"
+      },
+      {
+        "name": "The CAN communication is interrupted",
+        "id": "6",
+        "severity": "3"
+      },
+      {
+        "name": "Current Balance Error",
+        "id": "7",
+        "severity": "1"
+      },
+      {
+        "name": "Module power limiting",
+        "id": "8",
+        "severity": "2"
+      },
+      {
+        "name": "Power derating by temperature ",
+        "id": "9",
+        "severity": "3"
+      },
+      {
+        "name": "Fan fault",
+        "id": "10",
+        "severity": "1"
+      },
+      {
+        "name": "DC Short Circuit",
+        "id": "11",
+        "severity": "1"
+      },
+      {
+        "name": "DC output overvoltage/undervoltage",
+        "id": "12",
+        "severity": "1"
+      },
+      {
+        "name": "Other Fault",
+        "id": "13",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "14",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "15",
+        "severity": "2"
+      },
+      {
+        "name": "Error separe",
+        "id": "16",
+        "severity": "2"
+      },
+      {
+        "name": "Error separe",
+        "id": "17",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "18",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "19",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "20",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "21",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "22",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "23",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "24",
+        "severity": "1"
+      },
+      {
+        "name": "Module not ready ",
+        "id": "25",
+        "severity": "1"
+      },
+      {
+        "name": "Cable Check Fault",
+        "id": "26",
+        "severity": "3"
+      },
+      {
+        "name": "Pre Charge Fault",
+        "id": "27",
+        "severity": "2"
+      },
+      {
+        "name": "Current Demand Fault",
+        "id": "28",
+        "severity": "2"
+      },
+      {
+        "name": "Termination Fault",
+        "id": "29",
+        "severity": "1"
+      },
+      {
+        "name": "The response time of DC breaker is timeout",
+        "id": "30",
+        "severity": "1"
+      },
+      {
+        "name": "The response time of modules",
+        "id": "31",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "32",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "33",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "34",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "35",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "36",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "37",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "38",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "39",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "40",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "41",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "42",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "43",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "44",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "45",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "46",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "47",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "48",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "49",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "50",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "51",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "52",
+        "severity": "1"
+      },
+      {
+        "name": "CCS2 High temperature TH1",
+        "id": "53",
+        "severity": "1"
+      },
+      {
+        "name": "CCS2 High temperature TH2",
+        "id": "54",
+        "severity": "1"
+      },
+      {
+        "name": "CCS2 High temperature TH3",
+        "id": "55",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "56",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "57",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "58",
+        "severity": "1"
+      },
+      {
+        "name": "Insulation at fail",
+        "id": "59",
+        "severity": "1"
+      },
+      {
+        "name": "Error separe",
+        "id": "60",
+        "severity": "1"
+      },
+      {
+        "name": "Insulation Board Connection fail",
+        "id": "61",
+        "severity": "1"
+      },
+      {
+        "name": "Chiller Connection fail",
+        "id": "62",
+        "severity": "1"
+      },
+      {
+        "name": "Emergency Button is pressed",
+        "id": "63",
+        "severity": "1"
+      },
+      {
+        "name": "Other Fault",
+        "id": "64",
+        "severity": "1"
+      }
+    ]
+  }
+]
