@@ -29,7 +29,7 @@ app.post('/get', async (req, res) => {
       return;
     }
     const clientMessage = req.body.message;
-    let clientPayload =  await json.findMessage(`./log/data.json`, clientMessage);
+    let clientPayload =  await json.findMessage(`./log/config.json`, clientMessage);
     let timeoutUprade ;
     if(clientMessage === `auto_read_xls` && clientPayload.execution){
       clientPayload = await xlsReader();
@@ -58,7 +58,7 @@ app.post('/set', async (req, res) => {
     }
     const clientMessage = req.body.message;
     const clientPayload = req.body.payload;
-    const res = await json.findAndReplaceMessage(`./log/data.json`, clientMessage, clientPayload);
+    const res = await json.findAndReplaceMessage(`./log/config.json`, clientMessage, clientPayload);
   } catch (error) {
     console.error(error);
   }
@@ -83,26 +83,25 @@ async function xlsReader(){
 
 async function autoLoginPlc(){
   try{
-    const payloadMessage = await json.findMessage(`./log/data.json`, `auto_login`);
+    const payloadMessage = await json.findMessage(`./log/config.json`, `auto_login`);
     console.log(`AutoLogin: ${payloadMessage.execution} with ip: ${payloadMessage.ip}, user: ${payloadMessage.user}, password: ${payloadMessage.password}`);
     if(payloadMessage.execution){
-      let tempMode;
       await plc.autoLogin(payloadMessage.ip, payloadMessage.user, payloadMessage.password,
       (successReps => {
-        plcMode= successReps.operateMode;
-        if(successReps.operateMode!=tempMode){
-          tempMode= successReps.operateMode;
-          urlUpgrade(tempMode);
+        if(successReps.operateMode!= plcMode){
+          plcMode= successReps.operateMode;
+          urlUpgrade(plcMode);
         }
       }),
       (isFail => {
-        if(isFail) setTimeout(autoLoginPlc, 10000);
+        if(isFail) 
+          setTimeout(autoLoginPlc, 10000);
       }));
     }
   }
   catch(error) {
-    tempMode = `stop`;
-    if(tempMode!= plcMode){
+    const tempModeError = `stop`;
+    if(plcMode!= tempModeError){
       plc.urlUpdate(`stop`);
       plcMode = `stop`;
     }
@@ -113,7 +112,7 @@ async function autoLoginPlc(){
 
 async function urlUpgrade(mode){
   try{
-    const payloadMessage =  await json.findMessage(`./log/data.json`, `auto_run_url`);
+    const payloadMessage =  await json.findMessage(`./log/config.json`, `auto_run_url`);
     const EVSE = payloadMessage.EVSE;
     await plc.urlUpdate(mode, EVSE);
   }

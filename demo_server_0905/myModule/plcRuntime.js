@@ -1,5 +1,5 @@
-const json = require('./jsonUpdate'); // require path module
-const xls = require('./xlsUpdate'); // require path module
+const json = require('./jsonUpdate');
+const xls = require('./xlsUpdate');
 const https = require('https');
 
 async function request(url, data, token) {
@@ -64,7 +64,12 @@ async function login(ip, user, password) {
         };
 
         const response = await request(url, data, ""); // chờ kết quả từ hàm request
-        return response.result.token; // trả về kết quả khi hoàn thành
+        if( response.result.token ) {
+            return response.result.token; // trả về kết quả khi hoàn thành
+        }
+        else{
+            return console.error(`The request for operating mode data is denied.`);
+        }
     } 
     catch (error) {
         throw error; // ném lỗi ra ngoài
@@ -252,7 +257,7 @@ async function getSpecificData(ip, token, compareArray, numberOfArray, time, dat
             }
             const response = await request(url, reqData, token); // chờ kết quả từ hàm request
             const returnData = mappingArray(listData, response);
-            const listError = await json.findMessage(`./log/data.json`, 'listError');
+            const listError = await json.findMessage(`./log/config.json`, 'listError');
             const errorData = printedError(returnData, listError, compareArray, time, date);
             return returnData;
             // trả về kết quả khi hoàn thành
@@ -348,11 +353,10 @@ function printedError(dataArray, errorArray, oldErrorArray, time, date){ // Ki�
 }
 
 async function autoLogin(ip, user, password, successCalback, failCallback){
-    let interval1000ms;
     try{
-        let oldArray;
         const token = await login(ip, user, password);
         console.log("PLC's token: ", token);
+        let oldArray, interval1000ms;
         interval1000ms = setInterval(async() => {
             try{
                 // const systemTime = await getSystemTime(ip, token);
@@ -387,7 +391,7 @@ async function autoLogin(ip, user, password, successCalback, failCallback){
 async function urlStart(mode, index){
     try {
       const { exec } = require('child_process'); // require path module
-      const resp = await json.findMessage(`./log/data.json`, `auto_run_url`);
+      const resp = await json.findMessage(`./log/config.json`, `auto_run_url`);
       if (resp.execution) {
         let url;
         const chromePath = '"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"';

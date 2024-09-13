@@ -661,8 +661,33 @@ async function logout(hold) {
         if( hold ){
             timeout10000ms = setTimeout(async ()=>{
                 const host= 'http://127.0.0.1:3000/get';
-                const data = await request(host, {message: 'user_logout'}, null);
+                const url = await request(host, {message: 'url_switch'}, null);
+                if(url)
+                {
+                    
+                }
+            }, 10000);
+        }
+        else{
+            clearTimeout(timeout10000ms);
+        }
+    } catch (error) {
+        clearTimeout(timeout10000ms); 
+        console.error(error); // check debug
+    }
+}
 
+async function urlUpdate(hold) {
+    try {
+        let timeout10000ms;
+        if( hold ){
+            timeout10000ms = setTimeout(async ()=>{
+                const host= 'http://127.0.0.1:3000/get';
+                const url = await request(host, {message: 'url_switch'}, null);
+                if(url)
+                {
+                    
+                }
             }, 10000);
         }
         else{
