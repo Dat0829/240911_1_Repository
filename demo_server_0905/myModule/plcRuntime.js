@@ -366,10 +366,7 @@ async function autoLogin(ip, user, password, successCalback, failCallback){
                 const arrayData = await getArrayData(ip, token);
                 oldArray = await getSpecificData(ip, token, oldArray, arrayData, localTime.time, localTime.date);
                 const returnObj = {
-                    'localTime' : localTime,
-                    'operateMode' : operateMode,
-                    'arrayData' : arrayData,
-                    'oldArray' : oldArray,
+                    'operateMode' : operateMode
                 };
                 if(successCalback)
                     successCalback(returnObj);
